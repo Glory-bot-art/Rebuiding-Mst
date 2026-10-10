@@ -1,13 +1,21 @@
-Oct 8: Rebuilt MST UI from scratch, no AI. 4 sliders in variables, st.button, 
-CSV append with f-string. Learned: check docs for function names, 
-quotes around filenames, "a" mode appends.
-Next: header row once, \n at end, 7-day average, validation.
+Day 1 (Oct 8)
+Made the MST tracker UI again from scratch, no AI. 4 sliders stored in
+variables and a submit button. When you press submit it adds a row to
+the csv using an f-string. Already knew f-strings.
 
-Oct 9: Got header-once logic working in concept: os.path.exists(file_name),
-",".join(header) for header row, "w" to create and "a" to append. Added
-DateTime column. Struggled with: else lined up with the button's if instead
-of the file check (Streamlit reruns the script on every slider move, so that
-spams rows), and too many nested with blocks. Learned: write() takes one
-string only, \n goes at the END of a row, never hardcode the filename twice.
-Next: delete the else + extra with blocks, test with 2 submits (expect 1
-header, 2 rows). Then: read CSV back, 7-day average, validation.
+Day 2 (Oct 9)
+Worked on writing the header only once. Used os.path.exists to check if
+the file is there. "w" creates the file, "a" adds to it. Added a
+DateTime column. Got stuck because my else was lined up with the wrong
+if, and I had too many "with open" blocks.
+
+Day 3 (Oct 10)
+Fixed all my typos (os not so, exists not exist, balloons).
+Learned write() only takes one string, so I can't pass 2 things.
+header is a list so I used ",".join(header) to turn it into a string.
+Header check and row writing are 2 separate things. Header only if the
+file is new, row every time.
+Lost my code with git restore because I didn't commit. Rewrote it and it
+works now. Commit when something works.
+
+Next: read the csv back, 7-day average, input validation.

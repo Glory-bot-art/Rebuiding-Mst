@@ -1,2 +1,4 @@
 .venv
 Tracker.csv
+.swp
+__pycache__

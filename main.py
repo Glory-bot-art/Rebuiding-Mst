@@ -36,10 +36,21 @@ if st.button("submit"):
 
 #Analysing things with pandas
 
+#fixing date
 df = pd.read_csv("Tracker.csv",parse_dates=['DateTime'],date_format="%m/%d/%Y %I:%M:%S %p")
-# Returns a DataFrame
 df["Date"] = df["DateTime"].dt.date
 
+#writing 7 day average with pandas
+Average_Mood=df.groupby("Date")["Mood"].tail(7).mean().round(2)
+Average_Sleep=df.groupby("Date")["Sleep"].tail(7).mean().round(2)
+Average_Euphoria=df.groupby("Date")["Euphoria"].tail(7).mean().round(2)
 
-Average_Mood=df.groupby("Date")["Mood"].mean()
+#displaying it in sidebar with streamlit
+with st.sidebar:
+    st.metric(label="Average Mood",value=f"{Average_Mood}")
+    st.divider()
 
+    st.metric(label="Average Sleep",value=f"{Average_Sleep}")
+    st.divider()
+
+    st.metric(label="Average Euphoria",value=f"{Average_Euphoria}")

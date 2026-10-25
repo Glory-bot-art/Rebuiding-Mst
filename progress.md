@@ -18,5 +18,5 @@ file is new, row every time.
 Lost my code with git restore because I didn't commit. Rewrote it and it
 works now. Commit when something works.
 
-Day 4: pandas averages + sidebar. TODO: groupby+tail(7) is wrong if multiple entries per day, rewrite with date filter.”
-today i made bit of typo got a bug but was easy fix 
+day 4 : i fixed some bugs like doing .mean() two time on line 42 to 45 to get accurate value
+fixed stats varaible on line 24  

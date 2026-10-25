@@ -10,7 +10,7 @@ Mood =st.slider("Mood" ,0,10,5)
 st.divider()
 Sleep=st.slider("Sleep",0,10,5)
 st.divider()
-Euphoria=st.slider("Euphoria",0,10,5)
+Euphoria=st.slider("Euphoria",0,10,0)
 st.divider()
 Brain_dump = st.text_input(
     label= "**Brain_dump**",
@@ -21,8 +21,7 @@ Brain_dump = st.text_input(
 file_name = "Tracker.csv"
 header = ['DateTime','Mood','Sleep','Euphoria','Brain_dump']
 result = ",".join(header)
-stats = (f"{formatted_12hr},{Mood},{Sleep},{Euphoria},{Brain_dump}\n")
-
+stats = f'{formatted_12hr},{Mood},{Sleep},{Euphoria},"{Brain_dump}"\n'
 #what happen after submit 
 if st.button("submit"):
     if not os.path.exists(file_name):
@@ -41,9 +40,9 @@ df = pd.read_csv("Tracker.csv",parse_dates=['DateTime'],date_format="%m/%d/%Y %I
 df["Date"] = df["DateTime"].dt.date
 
 #writing 7 day average with pandas
-Average_Mood=df.groupby("Date")["Mood"].tail(7).mean().round(2)
-Average_Sleep=df.groupby("Date")["Sleep"].tail(7).mean().round(2)
-Average_Euphoria=df.groupby("Date")["Euphoria"].tail(7).mean().round(2)
+Average_Mood = df.groupby("Date")["Mood"].mean().tail(7).mean().round(2)
+Average_Sleep = df.groupby("Date")["Sleep"].mean().tail(7).mean().round(2)
+Average_Euphoria = df.groupby("Date")["Euphoria"].mean().tail(7).mean().round(2)
 
 #displaying it in sidebar with streamlit
 with st.sidebar:

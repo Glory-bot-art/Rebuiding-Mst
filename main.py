@@ -48,8 +48,8 @@ Average_Euphoria = df.groupby("Date")["Euphoria"].mean().tail(7).mean().round(2)
 with st.sidebar:
     st.metric(label="Average Mood",value=f"{Average_Mood}")
     st.divider()
-
     st.metric(label="Average Sleep",value=f"{Average_Sleep}")
     st.divider()
-
     st.metric(label="Average Euphoria",value=f"{Average_Euphoria}")
+
+#trying to make something for brain dump

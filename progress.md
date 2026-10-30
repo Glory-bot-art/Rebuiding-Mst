@@ -20,3 +20,5 @@ works now. Commit when something works.
 
 day 4 : i fixed some bugs like doing .mean() two time on line 42 to 45 to get accurate value
 fixed stats varaible on line 24  
+
+day5:Tried separate brain dump txt, scrapped it, data already in CSV. Next: show last 5 entries with tail + st.dataframe.”

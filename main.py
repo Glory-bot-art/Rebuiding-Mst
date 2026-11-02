@@ -53,3 +53,5 @@ with st.sidebar:
     st.metric(label="Average Euphoria",value=f"{Average_Euphoria}")
 
 #trying to make something for brain dump
+text=df.groupby("Date")["Brain_dump"].tail(3).tolist()
+st.write(text)

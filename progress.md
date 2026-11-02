@@ -22,3 +22,5 @@ day 4 : i fixed some bugs like doing .mean() two time on line 42 to 45 to get ac
 fixed stats varaible on line 24  
 
 day5:Tried separate brain dump txt, scrapped it, data already in CSV. Next: show last 5 entries with tail + st.dataframe.”
+
+day 6 :added a brain dump text column in the main.py for tommrow i want to make it filter by date 

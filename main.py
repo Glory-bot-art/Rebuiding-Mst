@@ -36,22 +36,24 @@ if st.button("submit"):
 #Analysing things with pandas
 
 #fixing date
-df = pd.read_csv("Tracker.csv",parse_dates=['DateTime'],date_format="%m/%d/%Y %I:%M:%S %p")
-df["Date"] = df["DateTime"].dt.date
+if os.path.exists(file_name):
+    df = pd.read_csv("Tracker.csv",parse_dates=['DateTime'],date_format="%m/%d/%Y %I:%M:%S %p")
+    df["Date"] = df["DateTime"].dt.date
 
-#writing 7 day average with pandas
-Average_Mood = df.groupby("Date")["Mood"].mean().tail(7).mean().round(2)
-Average_Sleep = df.groupby("Date")["Sleep"].mean().tail(7).mean().round(2)
-Average_Euphoria = df.groupby("Date")["Euphoria"].mean().tail(7).mean().round(2)
+ #Writing metric
+    Average_Mood = df.groupby("Date")["Mood"].mean().tail(7).mean().round(2)
+    Average_Sleep = df.groupby("Date")["Sleep"].mean().tail(7).mean().round(2)
+    Euphoria_count = df["Euphoria"].sum()
 
-#displaying it in sidebar with streamlit
-with st.sidebar:
-    st.metric(label="Average Mood",value=f"{Average_Mood}")
-    st.divider()
-    st.metric(label="Average Sleep",value=f"{Average_Sleep}")
-    st.divider()
-    st.metric(label="Average Euphoria",value=f"{Average_Euphoria}")
+ #for siderbar metric 
+    with st.sidebar:
+        st.metric(label="Average Mood",value=f"{Average_Mood}")
+        st.divider()
+        st.metric(label="Average Sleep",value=f"{Average_Sleep}")
+        st.divider()
+        st.metric(label="Euphoria count",value=f"{Euphoria_count}")
 
-#trying to make something for brain dump
-text=df.groupby("Date")["Brain_dump"].tail(3).tolist()
-st.write(text)
+  #Something for brain_dump
+if os.path.exists(file_name):
+    text = df.dropna(subset=["Brain_dump"])[["Date", "Brain_dump"]].tail(3)
+    st.write(text)

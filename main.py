@@ -27,6 +27,7 @@ if st.button("submit"):
     if not os.path.exists(file_name):
         with open (file_name,'w',newline="")as file:
             file.write(f"{result}\n{stats}")
+            st.balloons()
     else:
         with open (file_name,"a",newline="")as file:
             file.write(stats)
@@ -53,7 +54,7 @@ if os.path.exists(file_name):
         st.divider()
         st.metric(label="Euphoria count",value=f"{Euphoria_count}")
 
-  #Something for brain_dump
+  #Something for brain_dump(Brain dump section)
 if os.path.exists(file_name):
     text = df.dropna(subset=["Brain_dump"])[["Date", "Brain_dump"]].tail(3)
     st.write(text)

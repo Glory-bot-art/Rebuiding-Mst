@@ -24,3 +24,5 @@ fixed stats varaible on line 24
 day5:Tried separate brain dump txt, scrapped it, data already in CSV. Next: show last 5 entries with tail + st.dataframe.”
 
 day 6 :added a brain dump text column in the main.py for tommrow i want to make it filter by date 
+
+Day 7 :i feel like my product is almost ready for the day 7 i added date in the brain dump usage section and removing that NaN entries and also put the analysing with pandas in os.path.exits() so that program wont crash and there was one ballon()function missing so i added it  my goal is soon to ship the final product

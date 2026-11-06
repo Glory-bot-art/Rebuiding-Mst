@@ -56,5 +56,5 @@ if os.path.exists(file_name):
 
   #Something for brain_dump(Brain dump section)
 if os.path.exists(file_name):
-    text = df.dropna(subset=["Brain_dump"])[["Date", "Brain_dump"]].tail(3)
+    text = df.dropna(subset=["Brain_dump"])[["Date", "Brain_dump"]].tail(7)
     st.write(text)

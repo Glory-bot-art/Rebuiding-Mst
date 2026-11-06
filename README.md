@@ -1,6 +1,6 @@
 
 
-# 🧠 Mental State Tracker (MST)
+#  Mental State Tracker (MST)
 
 A fast, zero-bloat daily logging dashboard built from scratch to track mental state, sleep quality, and stray thoughts.
 
